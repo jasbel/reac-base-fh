@@ -3,11 +3,10 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
-    Link,
     NavLink,
 } from "react-router-dom";
 import logo from "../logo.svg";
-// import CounterView from "../views/CounterView";
+import CounterView from "../views/CounterView";
 
 const Navigation = () => {
     return (
@@ -54,7 +53,7 @@ const Navigation = () => {
                 <Routes>
                     <Route path="/about" element={<h1>about</h1>}></Route>
                     <Route path="/users" element={<h1>probando</h1>}></Route>
-                    <Route path="/" element={<h1>Users</h1>}></Route>
+                    <Route path="/" element={<CounterView />}></Route>
                 </Routes>
             </div>
         </Router>
