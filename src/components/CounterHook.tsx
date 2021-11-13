@@ -1,3 +1,5 @@
+
+import React from 'react'
 import { useCounter2 } from "../hooks/useCounter2";
 
 interface Props {
