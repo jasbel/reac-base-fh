@@ -1,6 +1,7 @@
 import  { useReducer } from "react";
-import { CounterAction, doIncreaseBy, doReset } from "./actions/actions";
+import * as actionCount from "./actions/actions";
 import { CounterState } from "./interfaces/interfaces";
+import { countReducer } from "./state/counterReducer";
 
 const INITIAL_STATE: CounterState = {
     counter: 0,
@@ -8,34 +9,17 @@ const INITIAL_STATE: CounterState = {
     changes: 0,
 };
 
-const countReducer = (
-    state: CounterState,
-    action: CounterAction
-): CounterState => {
-    switch (action.type) {
-        case "increaseBy":
-            return {
-                ...state,
-                changes: state.changes + 1,
-                counter: state.counter + action.payload.value,
-                previous: state.counter,
-            };
-        case "reset":
-            return { ...state, ...INITIAL_STATE };
-        default:
-            return state;
-    }
-};
+
 
 const CounterReducer = () => {
     const [state, dispatch] = useReducer(countReducer, INITIAL_STATE);
 
     const handleIncreseBy = (val: number) => {
-        dispatch(doIncreaseBy(val));
+        dispatch(actionCount.doIncreaseBy(val));
     };
 
     const handleReset = () => {
-        dispatch(doReset());
+        dispatch(actionCount.doReset());
     };
 
     return (
