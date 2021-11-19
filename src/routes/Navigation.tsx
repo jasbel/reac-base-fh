@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import logo from "../logo.svg";
 import CounterView from "../views/CounterView";
-import { routes } from "../01-lazyload/router/routes";
+import { routes } from "./routes";
 import {LazyPage1} from '../01-lazyload/pages';
 import { Suspense } from "react";
 
